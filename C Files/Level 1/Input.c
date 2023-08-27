@@ -14,6 +14,6 @@ int main()
 
     printf("Your habit : ");
     scanf("%s",&habit);
-    printf("Hello %s you have %d years old\nand you habit is %s",FullName,age,habit);
+    printf("Hello %syou have %d years old\nand you habit is %s",FullName,age,habit);
     return 0;
 }

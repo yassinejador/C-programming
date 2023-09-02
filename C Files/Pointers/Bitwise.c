@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <math.h>
+// Program Convert from hexadecimal (Just Numbers, alphabets I'll do that next time)
 /*
     0000 in binary corresponds to 0 in hexahexadecimal.
     0001 in binary corresponds to 1 in hexahexadecimal.
@@ -23,11 +24,11 @@
 int binaryToDecimal(char binary[])
 {
     int len = strlen(binary);
-    int i = len-1;
+    int i = len - 1;
     int decimal = 0;
-    while (i >0)
+    while (i >= 0)
     {
-        decimal += (int)pow(2, i) * (binary[i] - '0');
+        decimal += (int)pow(2, (len - 1 - i)) * (binary[i] - '0');
         i--;
     }
     return decimal;
@@ -36,14 +37,15 @@ int main()
 {
     char hexadecimal[200];
     int num;
-    int i = 0;
+    int i;
     int zeros = 0;
     int res = 0;
     printf("Give hexadecimal to convert it to decimal : 0x");
     scanf("%s", &hexadecimal);
+    i = strlen(hexadecimal) - 1;
     char binary[atoi(hexadecimal)];
     binary[0] = '\0';
-    while (i < strlen(hexadecimal))
+    while (i >= 0)
     {
         res = hexadecimal[i] - '0';
         zeros = 0;
@@ -60,7 +62,7 @@ int main()
             res /= 2;
             zeros++;
         }
-        i++;
+        i--;
         zeros = 4 - zeros;
         while (zeros > 0)
         {

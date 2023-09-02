@@ -6,7 +6,6 @@
 *.ko
 *.obj
 *.elf
-*Bitwise.c
 
 # Linker output
 *.ilk
